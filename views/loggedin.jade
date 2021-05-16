@@ -1,0 +1,88 @@
+extends layout 
+
+block content
+ <div class="selectForm">
+ <form class="pt-2 pb-2" style="max-width: 600px; margin: 0 auto;">
+ <div class="m-3">
+
+ <div class="form-group row mt-2 justify-content-center">
+ <label class="col-form-label col-4 labelTitle">Data type</label>
+ <div class="col-5">
+ <select class="form-select" aria-label="Default select example" name="cityDropdown" style="width: 300px" onChange="changeType(this.selectedIndex);">
+ <a style="width: 300px">
+ <option value="actualcond">Actual conditions</option>
+ <option value="avarage">Avarage</option>
+ <option value="standdev">Standard deviation</option>
+ </a>
+ </select>
+ </div>
+ </div>
+
+ <div class="form-group row mt-2 justify-content-center choiceContent" id="service">
+ <label class="col-form-label col-4 labelTitle">Service name</label>
+ <div class="col-5">
+ <select class="form-select" aria-label="Default select example" name="cityDropdown" style="width: 300px" id="serviceSelect">
+ <a style="width: 300px">
+ <option value="openweather">Open Weather</option>
+ <option value="weatherbit">Weather Bit</option>
+ <option value="accuweather">AccuWeather</option>
+ </a>
+ </select>
+ </div>
+ </div>
+
+ <div class="form-group row mt-2 justify-content-center choiceContent" id="city">
+ <label class="col-form-label col-4 labelTitle">City</label>
+ <div class="col-5">
+ <select class="form-select" aria-label="Default select example" name="cityDropdown" style="width: 300px" id="citySelect">
+ <a style="width: 300px">
+ each city in cities
+  <option value="#{city}">#{city}</option>
+ </a>
+ </select>
+ </div>
+ </div>
+
+ <div class="form-group row mt-2 justify-content-center" id="days">
+ <label class="col-form-label col-4 labelTitle">Number of days</label>
+ <div class="col-5">
+ <input style="width: 300px"  type="number" step="any" class="form-control" id="daysInput" onChange="checkDays();">
+ <span id="daysWarning" style="color: yellow;"></span>
+ <span style="color: white;">Days in DB #{days}</span>
+ </div>
+ </div>
+
+ <br>
+ <div class="btn">
+ <button class="btn btn-primary mt-3" type="button" onclick='updateData()'>Apply</button>
+ </div>
+ </div>
+ </form>
+ </div>
+
+ <div id="table">
+ <table class="table table-striped table-dark mt-5 text-center">
+ <thead>
+ <tr>
+ <th scope="col">id</th>
+ <th scope="col">Service name</th>
+ <th scope="col">City</th>
+ <th scope="col">Timestamp</th>
+ <th scope="col">Temperature</th>
+ <th scope="col">Pressure</th>
+ <th scope="col">Humidity</th>
+ <th scope="col">Rain</th>
+ <th scope="col">Wind speed</th>
+ <th scope="col">Wind direction</th>
+ </tr>
+ </thead>
+ <tbody id="tableContent">
+ </tbody>
+ </table>
+ </div>
+ script(src='/socket.io/socket.io.js')
+ script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+ script(type='text/javascript').
+   var daysDB =!{JSON.stringify(days)};
+   var username = !{JSON.stringify(email)};
+ script(src='/javascripts/content_handler.js')

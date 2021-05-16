@@ -1,0 +1,31 @@
+{
+  "name": "weather-rest-client",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "serverstart": "DEBUG=weather_rest_client:* npm run devstart"
+  },
+  "dependencies": {
+    "connect-redis": "^5.2.0",
+    "cookie-parser": "~1.4.4",
+    "cookie-session": "^1.4.0",
+    "debug": "~2.6.9",
+    "events": "^3.3.0",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "googleapis": "^72.0.0",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "node-cron": "^3.0.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0",
+    "redis": "^3.1.2",
+    "request": "^2.88.2",
+    "session-file-store": "^1.5.0",
+    "socket.io": "^4.0.1"
+  }
+}
