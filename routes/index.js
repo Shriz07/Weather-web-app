@@ -38,7 +38,7 @@ router.get('/auth', function(req, res, next) {
 
 router.get('/weather', async(req, res) => {
   const daysInDB = await db.getDays();
-  res.render('loggedin', {email: 'none', days: daysInDB, cities: cities, lastvisit: 'unknown', counter: 'unknown'});
+  res.render('loggedin', {email: 'Not logged in', days: daysInDB, cities: cities, lastvisit: 'Unknown', counter: 'Unknown'});
 });
 
 router.get('/logged', async(req, res) => {
@@ -82,6 +82,10 @@ router.get('/logout', function(req, res, next) {
         res.redirect('/');
       }
     });
+  }
+  else
+  {
+    res.redirect('/');
   }
 });
 
