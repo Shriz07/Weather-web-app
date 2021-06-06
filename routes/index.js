@@ -36,6 +36,11 @@ router.get('/auth', function(req, res, next) {
   }
 });
 
+router.get('/weather', async(req, res) => {
+  const daysInDB = await db.getDays();
+  res.render('loggedin', {email: 'none', days: daysInDB, cities: cities, lastvisit: 'unknown', counter: 'unknown'});
+});
+
 router.get('/logged', async(req, res) => {
   if(req.session.authed == true)
   {
