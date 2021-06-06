@@ -38,7 +38,7 @@ body {
   cursor: pointer;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
-  padding-top: 10px;
+  margin-top: 15px;
 }
 
 .btn-2:hover {
