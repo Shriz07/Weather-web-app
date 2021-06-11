@@ -54,7 +54,7 @@ function getOpenWeather(city, callback)
       temperature: body.main.temp,
       pressure: body.main.pressure,
       humidity: body.main.humidity,
-      rain: 0,
+      rain: rain,
       wSpeed: body.wind.speed,
       wDirection: body.wind.deg
     };
